@@ -1,9 +1,285 @@
-{{!< default}}
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
 
-<main id="gh-main" class="gh-main">
-    {{#foreach posts limit="1"}}
-        <article class="gh-article {{post_class}}">
-            {{> content}}
-        </article>
-    {{/foreach}}
-</main>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+
+    {{ghost_head}}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter leading-relaxed">
+    <header class="pt-14 pb-14 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col items-center gap-8">
+                <div class="w-20 h-20 rounded-full mb-4 overflow-hidden">
+                    <img src="{{asset "me.jpg"}}" alt="Daniel Lockyer" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-6xl md:text-7xl font-black mb-4 uppercase tracking-tight leading-none">Daniel Lockyer</h1>
+                    <p class="text-m text-gray-500 mb-6">Performance-focused freelance software engineer who optimizes the full stack - frontend, backend and infrastructure - to generate more revenue and cut costs for businesses.</p>
+                    <p class="text-gray-400 mb-8">Remote • Available Worldwide</p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="https://cal.com/daniellockyer/15" class="inline-flex items-center gap-2 text-emerald-500 border-2 border-emerald-500 hover:bg-emerald-500 hover:text-white px-6 py-3 rounded-3xl text-sm font-medium transition-all hover:-translate-y-0.5" target="_blank">Book a Call</a>
+                        <a href="mailto:hi@daniellockyer.com" class="inline-flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-gray-900 p-3 min-w-12 rounded-3xl text-sm font-medium transition-all hover:-translate-y-0.5">📧</a>
+                        <a href="https://x.com/daniellockyer" class="inline-flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-gray-900 p-3 min-w-12 rounded-3xl text-sm font-medium transition-all hover:-translate-y-0.5" target="_blank">𝕏</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="pb-12">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-semibold mb-8 text-center">Services</h2>
+                <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                    <div class="p-6 bg-white rounded-lg border hover:border-emerald-200 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                            <h3 class="font-semibold">System Profiling & Optimization</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm">Find what's slow and make it fast.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg border hover:border-emerald-200 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                            <h3 class="font-semibold">Infrastructure Cost Analysis</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm">Cut your cloud bill without breaking anything.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg border hover:border-emerald-200 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                            <h3 class="font-semibold">System Stability</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm">Stop things from breaking when they shouldn't.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg border hover:border-emerald-200 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                            <h3 class="font-semibold">Performance Monitoring</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm">Know when things go wrong before your users do.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-semibold mb-12 text-center">Previous Clients</h2>
+                
+                <div class="mt-12">
+                    <div class="flex flex-wrap gap-8 items-center justify-center">
+                        <div class="flex flex-col items-center gap-3 p-6 rounded-xl transition-all hover:bg-gray-50 hover:-translate-y-0.5">
+                            <img src="{{asset "logos/logo-ghost.png"}}" alt="Ghost" class="w-36 h-10 object-contain mb-2">
+                        </div>
+                        <div class="flex flex-col items-center gap-3 p-6 rounded-xl transition-all hover:bg-gray-50 hover:-translate-y-0.5">
+                            <img src="{{asset "logos/logo-nomads.png"}}" alt="Nomad List" class="w-36 h-10 object-contain mb-2">
+                        </div>
+                        <div class="flex flex-col items-center gap-3 p-6 rounded-xl transition-all hover:bg-gray-50 hover:-translate-y-0.5">
+                            <img src="{{asset "logos/logo-remoteok.webp"}}" alt="Remote OK" class="w-36 h-10 object-contain mb-2">
+                        </div>
+                        <div class="flex flex-col items-center gap-3 p-6 rounded-xl transition-all hover:bg-gray-50 hover:-translate-y-0.5">
+                            <img src="{{asset "logos/logo-photoai.png"}}" alt="PhotoAI" class="w-36 h-10 object-contain mb-2">
+                        </div>
+                        <div class="flex flex-col items-center gap-3 p-6 rounded-xl transition-all hover:bg-gray-50 hover:-translate-y-0.5">
+                            <img src="{{asset "logos/logo-indietraveller.svg"}}" alt="Indie Traveller" class="w-36 h-10 object-contain mb-2">
+                        </div>
+                        <div class="flex flex-col items-center gap-3 p-6 rounded-xl transition-all hover:bg-gray-50 hover:-translate-y-0.5">
+                            <img src="{{asset "logos/logo-gamequitters.png"}}" alt="Game Quitters" class="w-36 h-10 object-contain mb-2">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columns-1 md:columns-2 gap-8 mt-12 max-w-5xl mx-auto space-y-8">
+                    <div class="break-inside-avoid rounded-2xl overflow-hidden transition-all hover:-translate-y-1.5 mb-8">
+                        <img src="{{asset "testimonials/Testimonial-ServerHelp-1.png"}}" alt="Client testimonial" loading="lazy" class="w-full rounded-lg">
+                    </div>
+                    <div class="break-inside-avoid rounded-2xl overflow-hidden transition-all hover:-translate-y-1.5 mb-8">
+                        <img src="{{asset "testimonials/Testimonial-ServerHelp-3.png"}}" alt="Client testimonial" loading="lazy" class="w-full rounded-lg">
+                    </div>
+                    <div class="break-inside-avoid rounded-2xl overflow-hidden transition-all hover:-translate-y-1.5 mb-8">
+                        <img src="{{asset "testimonials/Testimonial-ServerHelp-4.png"}}" alt="Client testimonial" loading="lazy" class="w-full rounded-lg">
+                    </div>
+                    <div class="break-inside-avoid rounded-2xl overflow-hidden transition-all hover:-translate-y-1.5 mb-8">
+                        <img src="{{asset "testimonials/Testimonial-ServerHelp-5.png"}}" alt="Client testimonial" loading="lazy" class="w-full rounded-lg">
+                    </div>
+                    <div class="break-inside-avoid rounded-2xl overflow-hidden transition-all hover:-translate-y-1.5 mb-8">
+                        <img src="{{asset "testimonials/Testimonial-ServerHelp-6.png"}}" alt="Client testimonial" loading="lazy" class="w-full rounded-lg">
+                    </div>
+                    <div class="break-inside-avoid rounded-2xl overflow-hidden transition-all hover:-translate-y-1.5 mb-8">
+                        <img src="{{asset "testimonials/Testimonial-ServerHelp-7.png"}}" alt="Client testimonial" loading="lazy" class="w-full rounded-lg">
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-xl font-semibold my-12 text-center">Notable Open Source Contributions</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                        <a href="https://github.com/antiwork/helper/pull/426" class="bg-white border rounded-xl p-5 transition-all block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-sm">antiwork/helper</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#426</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">Improved search performance by caching key derivation - 10x faster encryption/decryption</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">2 commits</span>
+                                <span class="font-mono">2 files</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/TryGhost/Ghost/commit/da3142ec00b064f68cb0e1baafe1065b9cf3f6fe" class="bg-white border rounded-xl p-5 transition-all block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-sm">TryGhost/Ghost</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#da3142e</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">Improved performance when importing posts via JSON file by 92%</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+5 -1</span>
+                                <span class="font-mono">1 file</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/TryGhost/Ghost/commit/ea6d3a0f26b7f48e745f1c43f8d84e3e47b03970" class="bg-white border border-gray-200 rounded-xl p-5 no-underline text-inherit transition-all duration-300 block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-gray-900 text-sm">TryGhost/Ghost</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#ea6d3a0</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-6 mb-3">Optimized settings cache - 30% more requests per second by avoiding JSON.parse hotpath</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+9 -0</span>
+                                <span class="font-mono">1 file</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/TryGhost/Ghost/commit/bfdf2dd8bf079bbee9f1405fee7bf4a83128e0bc" class="bg-white border border-gray-200 rounded-xl p-5 no-underline text-inherit transition-all duration-300 block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-gray-900 text-sm">TryGhost/Ghost</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#bfdf2dd</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-6 mb-3">Optimized loading dynamic redirects - 3x faster by eliminating O(n²) algorithm</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+1 -10</span>
+                                <span class="font-mono">2 files</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/TryGhost/Ghost/commit/b3cf23ebd8f555b4b2da1cea3027097323a4e8a4" class="bg-white border border-gray-200 rounded-xl p-5 no-underline text-inherit transition-all duration-300 block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-gray-900 text-sm">TryGhost/Ghost</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#b3cf23e</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-6 mb-3">Optimized Bookshelf plugin - 1.5% faster boot time by replacing concat with spread operator</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+8 -8</span>
+                                <span class="font-mono">1 file</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/TryGhost/Ghost/commit/b376585c640bf999bb5494b73f83b84292b11491" class="bg-white border border-gray-200 rounded-xl p-5 no-underline text-inherit transition-all duration-300 block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-gray-900 text-sm">TryGhost/Ghost</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#b376585</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-6 mb-3">Optimized Resources constructor - 15% less CPU during boot by replacing Object.assign</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+1 -2</span>
+                                <span class="font-mono">1 file</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/TryGhost/gscan/commit/f57ab075c699a2f1a6fc65c45130097c942b1003" class="bg-white border border-gray-200 rounded-xl p-5 no-underline text-inherit transition-all duration-300 block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-gray-900 text-sm">TryGhost/gscan</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#f57ab07</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-6 mb-3">Added partial caching to GScan rules - prevents unnecessary work in theme checking</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+39 -10</span>
+                                <span class="font-mono">2 files</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/TryGhost/Ghost/commit/f250898a3b66948294e54ce52b71769e9d4a427b" class="bg-white border border-gray-200 rounded-xl p-5 no-underline text-inherit transition-all duration-300 block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-gray-900 text-sm">TryGhost/Ghost</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#f250898</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-6 mb-3">Optimized Admin dashboard stats - 85x faster (1ms vs 85ms) by replacing recursion with reduce</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+21 -26</span>
+                                <span class="font-mono">1 file</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/TryGhost/knex-migrator/commit/838fe5462837902bfdda0525bd8a292f57aa0d9a" class="bg-white border border-gray-200 rounded-xl p-5 no-underline text-inherit transition-all duration-300 block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-semibold text-gray-900 text-sm">TryGhost/knex-migrator</span>
+                                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">#838fe54</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-6 mb-3">Optimized integrity check DB calls - reduced from 70+ queries to 1 single grouped query</p>
+                            <div class="flex gap-4 text-xs text-gray-400">
+                                <span class="font-mono">+60 -58</span>
+                                <span class="font-mono">1 file</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="text-center mt-8">
+                        <a href="https://github.com/daniellockyer" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium text-sm transition-colors" target="_blank" rel="noopener noreferrer">
+                            View 12,000+ more commits on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <main id="gh-main" class="gh-main">
+            {{#foreach posts limit="1"}}
+                <article class="gh-article {{post_class}}">
+                    {{> content}}
+                </article>
+            {{/foreach}}
+        </main> -->
+
+        <section class="py-10 bg-gray-800 text-white text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <p class="mb-8 text-lg">
+                    Ready to optimize? Let's chat.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                    <a href="https://cal.com/daniellockyer/15" class="text-white font-medium py-3.5 px-7 border-2 rounded-xl transition-all bg-emerald-500 border-emerald-500 hover:bg-emerald-600 hover:border-emerald-600" target="_blank">📅 Book a Call</a>
+                    <a href="mailto:hi@daniellockyer.com" class="text-white font-medium py-3.5 px-7 border-2 border-white/20 rounded-xl transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5">📧 Email</a>
+                    <a href="https://x.com/daniellockyer" class="text-white font-medium py-3.5 px-7 border-2 border-white/20 rounded-xl transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5" target="_blank">🐦 Twitter</a>
+                </div>
+                <div class="border-t border-white/20 pt-8">
+                    <p class="text-white/70 text-sm mb-2">&copy; 2025 Daniel Lockyer. Available for freelance projects and consulting.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{{ghost_foot}}
+
+</body>
+</html> 

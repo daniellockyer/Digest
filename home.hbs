@@ -203,4 +203,46 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
+
+{{#get "posts" filter="tag:home" limit="5" as |homePosts|}}
+    {{#if homePosts}}
+        <section class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-semibold mb-12 text-center">Latest Blog Posts</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {{#foreach homePosts}}
+                        <article class="bg-gray-50 rounded-lg border hover:border-emerald-200 transition-all hover:shadow-lg hover:-translate-y-1">
+                            {{#if feature_image}}
+                                <div class="aspect-video overflow-hidden rounded-t-lg">
+                                    <img src="{{feature_image}}" alt="{{title}}" class="w-full h-full object-cover">
+                                </div>
+                            {{/if}}
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-3 line-clamp-2">
+                                    <a href="{{url}}" class="text-gray-900 hover:text-emerald-600 transition-colors">{{title}}</a>
+                                </h3>
+                                {{#if excerpt}}
+                                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{excerpt}}</p>
+                                {{/if}}
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM DD, YYYY"}}</time>
+                                    {{#if reading_time}}
+                                        <span>{{reading_time}}</span>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </article>
+                    {{/foreach}}
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="/tag/home/" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium text-sm transition-colors">
+                        View all blog posts →
+                    </a>
+                </div>
+            </div>
+        </section>
+    {{/if}}
+{{/get}} 

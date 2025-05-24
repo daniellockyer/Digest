@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{@site.locale}}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Lockyer - Software Engineer & Performance Specialist</title>
-    <meta name="description" content="Freelance software engineer specializing in performance optimization and web development. Available for consulting and development projects.">
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+
+    {{ghost_head}}
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -26,7 +28,7 @@
     </script>
 </head>
 <body class="font-inter leading-relaxed">
-    <header class="pt-24 pb-20 text-center">
+    <header class="pt-14 pb-14 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <div class="flex flex-col items-center gap-8">
                 <div class="w-20 h-20 rounded-full mb-4 overflow-hidden">
@@ -276,6 +278,8 @@
             </div>
         </section>
     </main>
+
+{{ghost_foot}}
 
 </body>
 </html> 

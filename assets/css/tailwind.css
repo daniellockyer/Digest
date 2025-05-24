@@ -21,6 +21,26 @@
   .aspect-video {
     aspect-ratio: 16 / 9;
   }
+
+  /* Ghost required CSS classes */
+  .kg-width-wide {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 1200px;
+  }
+
+  .kg-width-full {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
 }
 
 /* Custom base styles */

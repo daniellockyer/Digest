@@ -5,111 +5,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
-    <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 
     {{ghost_head}}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset "built/tailwind.css"}}">
 </head>
 
-<body class="{{body_class}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{plural pagination.pages empty="" singular=" no-pagination" plural=""}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}">
-<div class="gh-site">
-
-    <header id="gh-head" class="gh-head gh-outer">
-        <div class="gh-head-inner">
-            <div class="gh-head-brand">
-                <div class="gh-head-brand-wrapper">
-                    <a class="gh-head-logo" href="{{@site.url}}">
-                        {{#if @site.logo}}
-                            <img src="{{@site.logo}}" alt="{{@site.title}}">
-                        {{else}}
-                            {{@site.title}}
-                        {{/if}}
-                    </a>
+<body class="font-inter leading-relaxed">
+    <header class="pt-14 pb-14 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col items-center gap-8">
+                <div class="w-20 h-20 rounded-full mb-4 overflow-hidden">
+                    <img src="{{asset "me.jpg"}}" alt="Daniel Lockyer" class="w-full h-full object-cover">
                 </div>
-                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                <button class="gh-burger" aria-label="Toggle menu"></button>
-            </div>
-
-            <nav class="gh-head-menu">
-                {{navigation}}
-                {{#unless @site.members_enabled}}
-                    {{#match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                    {{/match}}
-                {{/unless}}
-            </nav>
-
-            <div class="gh-head-actions">
-                {{#unless @site.members_enabled}}
-                    {{^match @custom.navigation_layout "Stacked"}}
-                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                    {{/match}}
-                {{else}}
-                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
-                    <div class="gh-head-members">
-                        {{#unless @member}}
-                            {{#unless @site.members_invite_only}}
-                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
-                            {{else}}
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
-                            {{/unless}}
-                        {{else}}
-                            <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">Account</a>
-                        {{/unless}}
+                <div>
+                    <h1 class="text-6xl md:text-7xl font-black mb-4 uppercase tracking-tight leading-none">Daniel Lockyer</h1>
+                    <p class="text-m text-gray-500 mb-6">Performance-focused freelance software engineer who optimizes the full stack - frontend, backend and infrastructure - to generate more revenue and cut costs for businesses.</p>
+                    <p class="text-gray-400 mb-8">Remote • Available Worldwide</p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="https://cal.com/daniellockyer/15" class="inline-flex items-center gap-2 text-emerald-500 border-2 border-emerald-500 hover:bg-emerald-500 hover:text-white px-6 py-3 rounded-3xl text-sm font-medium transition-all hover:-translate-y-0.5" target="_blank">Book a Call</a>
+                        <a href="mailto:hi@daniellockyer.com" class="inline-flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-gray-900 p-3 min-w-12 rounded-3xl text-sm font-medium transition-all hover:-translate-y-0.5">Email me</a>
+                        <a href="https://x.com/daniellockyer" class="inline-flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-gray-900 p-3 min-w-12 rounded-3xl text-sm font-medium transition-all hover:-translate-y-0.5" target="_blank">𝕏</a>
                     </div>
-                {{/unless}}
+                </div>
             </div>
         </div>
     </header>
 
-    {{{body}}}
+    <main>
+        {{{body}}}
+    </main>
 
-    {{#if @site.members_enabled}}
-    {{#unless @member}}
-        <div class="gh-subscribe-wrapper gh-canvas">
-            <section class="gh-subscribe">
-                <h3 class="gh-subscribe-title">Subscribe to {{@site.title}}</h3>
-
-                <div class="gh-subscribe-description">Sign up now to get access to the library of members-only issues.</div>
-
-                <a class="gh-subscribe-input u-hover" href="#/portal/signup" data-portal="signup">
-                    Jamie Larson
-                    <div class="gh-subscribe-input-btn">
-                        <div class="u-hover-inner">
-                            Subscribe
-                            <span class="u-hover-arrow">{{> icons/chevron-right}}</span>
-                            <span class="u-hover-arrow">{{> icons/chevron-right}}</span>
-                        </div>
-                    </div>
-                </a>
-            </section>
-        </div>
-    {{/unless}}
-    {{/if}}
-
-    <footer class="gh-foot{{#unless @site.secondary_navigation}} no-menu{{/unless}} gh-outer">
-        <div class="gh-foot-inner gh-inner">
-            <div class="gh-copyright">
-                {{@site.title}} © {{date format="YYYY"}}
+    <footer class="py-10 bg-gray-800 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="mb-8 text-lg">
+                Ready to optimize? Let's chat.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                <a href="https://cal.com/daniellockyer/15" class="text-white font-medium py-3.5 px-7 border-2 rounded-xl transition-all bg-emerald-500 border-emerald-500 hover:bg-emerald-600 hover:border-emerald-600" target="_blank">Book a Call</a>
+                <a href="mailto:hi@daniellockyer.com" class="text-white font-medium py-3.5 px-7 border-2 border-white/20 rounded-xl transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5">Email me</a>
+                <a href="https://x.com/daniellockyer" class="text-white font-medium py-3.5 px-7 border-2 border-white/20 rounded-xl transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5" target="_blank">𝕏</a>
             </div>
-            {{#if @site.secondary_navigation}}
-                <nav class="gh-foot-menu">
-                    {{navigation type="secondary"}}
-                </nav>
-            {{/if}}
-            <div class="gh-powered-by">
-                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+            <div class="border-t border-white/20 pt-8">
+                <p class="text-white/70 text-sm mb-2">&copy; 2025 Daniel Lockyer. Available for freelance projects and consulting.</p>
             </div>
         </div>
     </footer>
-
-</div>
-
-{{#is "post, page, home"}}
-    {{> "pswp"}}
-{{/is}}
-
-<script src="{{asset "built/main.min.js"}}"></script>
 
 {{ghost_foot}}
 

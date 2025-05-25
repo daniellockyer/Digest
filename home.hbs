@@ -1,6 +1,6 @@
 {{!< default}}
 
-<section class="pb-12 max-w-4xl mx-auto px-4">
+<section class="pb-12 max-w-4xl mx-auto">
     <h2 class="text-2xl font-semibold mb-8 text-center">Services</h2>
     <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         <div class="p-6 bg-white rounded-lg border hover:border-emerald-200 transition-colors">
@@ -34,7 +34,7 @@
     </div>
 </section>
 
-<section class="pb-12 max-w-6xl mx-auto px-6">
+<section class="pb-12 max-w-6xl mx-auto">
     <h2 class="text-2xl font-semibold mb-12 text-center">Previous Clients</h2>
     
     <div class="mt-12">
@@ -206,7 +206,7 @@
 
 {{#get "posts" filter="tag:home" limit="15" as |homePosts|}}
     {{#if homePosts}}
-        <section class="pb-12 max-w-4xl mx-auto px-6">
+        <section class="pb-12 max-w-4xl mx-auto">
             <h3 class="text-2xl font-semibold my-12 text-center">Recent Posts</h3>
             <ul class="space-y-2">
                 {{#foreach homePosts}}

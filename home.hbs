@@ -170,7 +170,7 @@
         </div>        
     </div>
 
-    <div class="mt-12">
+    <div class="mt-16">
         <h3 id="contributions" class="text-2xl font-semibold my-12 text-center">Notable Open Source Contributions</h3>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
             <a href="https://github.com/antiwork/helper/pull/426" class="bg-white border rounded-lg p-5 transition-all block hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5" target="_blank" rel="noopener noreferrer">
@@ -292,13 +292,13 @@
 
 {{#get "posts" filter="tag:home" limit="15" as |homePosts|}}
     {{#if homePosts}}
-        <section class="px-4 max-w-4xl mx-auto">
+        <section class="px-4 max-w-6xl mx-auto">
             <h2 id="posts" class="text-2xl font-semibold mb-12 text-center">Recent Posts</h2>
             <ul class="space-y-2">
                 {{#foreach homePosts}}
                     <li class="flex items-center justify-between py-1 border-b border-gray-100 last:border-b-0">
-                        <a href="{{url}}" class="text-gray-600 hover:text-emerald-600 transition-colors text-sm">{{title}}</a>
-                        <time datetime="{{date format="YYYY-MM-DD"}}" class="text-xs text-gray-400 ml-4 flex-shrink-0">{{date format="MMM DD"}}</time>
+                        <a href="{{url}}" class="text-gray-600 hover:text-emerald-600 transition-colors">{{title}}</a>
+                        <time datetime="{{date format="YYYY-MM-DD"}}" class="text-gray-400 ml-4 flex-shrink-0">{{date format="MMM DD"}}</time>
                     </li>
                 {{/foreach}}
             </ul>

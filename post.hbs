@@ -23,16 +23,6 @@
     <div class="prose">
         {{content}}
     </div>
-
-    {{#if tags}}
-        <footer class="mt-12 pt-8 border-t border-gray-200">
-            <div class="flex flex-wrap gap-2">
-                {{#foreach tags}}
-                    <a href="{{url}}" class="inline-block px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition-colors">{{name}}</a>
-                {{/foreach}}
-            </div>
-        </footer>
-    {{/if}}
 </article>
 
 {{/post}}

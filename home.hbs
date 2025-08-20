@@ -46,7 +46,7 @@
                     <div class="space-y-4 text-base text-gray-600">
                         <p>I work <span class="bg-emerald-100 px-1 rounded font-semibold">iteratively</span>, focusing on the areas with the most impact first. Rather than trying to fix everything at once, I identify and prioritize the bottlenecks that will give the biggest performance gains.</p>
                         
-                        <p>We can typically make <span class="bg-emerald-100 px-1 rounded font-semibold">huge improvements within the first 2 months</span> by targeting the right areas.</p>
+                        <p>We can typically make <span class="bg-emerald-100 px-1 rounded font-semibold">huge improvements within the first month</span> by targeting the right areas.</p>
                         
                         <p>CPU utilization, memory usage, and response time drops of <span class="bg-emerald-100 px-1 rounded font-semibold">over 80%</span> are not uncommon.</p>
 
@@ -70,8 +70,18 @@
             </div>
         </div>
         
-        <!-- Custom Engagements Box -->
-        <div class="mt-8">
+        <!-- Consulting and Custom Engagements -->
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+            <!-- 1hr Consulting Call Box -->
+            <div class="bg-gray-50 rounded-lg border border-gray-200 p-6 text-center">
+                <h3 class="text-lg font-semibold mb-2">1hr Consulting Call</h3>
+                <p class="text-gray-600 text-base mb-4">Get advice on your performance challenges. I'll review your specific situation and provide recommendations.</p>
+                <span data-cal-link="daniellockyer/60-mins" data-cal-namespace="60"  class="inline-flex items-center justify-center bg-white text-gray-700 hover:bg-gray-100 border border-gray-300 px-12 py-3 rounded-3xl text-base font-medium transition-all cursor-pointer">
+                    Book a call
+                </span>
+            </div>
+            
+            <!-- Custom Engagements Box -->
             <div class="bg-gray-50 rounded-lg border border-gray-200 p-6 text-center">
                 <h3 class="text-lg font-semibold mb-2">Custom Engagements</h3>
                 <p class="text-gray-600 text-base mb-4">Need something different? I also offer workshops, team coaching, training sessions, and other custom arrangements tailored to your specific needs.</p>
@@ -228,3 +238,9 @@
         </div>
     {{/if}}
 {{/get}}
+
+ <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "60", {origin:"https://cal.com"});
+    Cal.ns["60"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#10b981"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
